@@ -1,0 +1,6 @@
+{
+  "name": "La Plateforme de Monsieur Halim",
+  "description": "Une plateforme éducative premium pour apprendre le français avec l'excellence de Monsieur Halim, enseignant innovant d'Algérie.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
