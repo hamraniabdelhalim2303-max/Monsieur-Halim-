@@ -1,0 +1,403 @@
+<title>Épithète ou attribut — Monsieur Halim</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@600;800;900&family=Cairo:wght@600;700&display=swap">
+<style>
+/* Layout: one 1920×1080 stage scaled to fit, a step-by-step scene player under it. The stage is a video frame, so it commits to one light look in both themes; the page around it follows the viewer's theme. */
+:root{
+  --ivory:#FAF6EC; --sand:#E9DCC0; --navy:#1B2A4A; --forest:#2F5D3A; --sage:#A9BFA0; --gold:#C9A961;
+  --g-nom:#1B2A4A; --g-verbe:#159A9C; --g-adj:#E08A1E; --g-etre:#1E88E5; --g-epi:#FFE27A; --g-att:#B5E3A1; --g-pro:#7B5EA7;
+  --page:#F1ECDF; --page-fg:#1B2A4A; --muted:#5d6577; --chip:#ffffff; --line:#d9cfb8;
+  --f-title:"Fraunces",Georgia,serif; --f-body:"Nunito","Segoe UI",system-ui,sans-serif; --f-ar:"Cairo","Noto Naskh Arabic",Tahoma,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--page:#111a2c;--page-fg:#ECE6D6;--muted:#9aa3b5;--chip:#1b2740;--line:#2c3a57;color-scheme:dark}}
+:root[data-theme="dark"]{--page:#111a2c;--page-fg:#ECE6D6;--muted:#9aa3b5;--chip:#1b2740;--line:#2c3a57;color-scheme:dark}
+html,body{height:100%}
+body{background:var(--page);color:var(--page-fg);font-family:var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px;box-sizing:border-box}
+.wrap{max-width:1400px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+header.top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px}
+header.top h1{font-family:var(--f-title);font-size:clamp(20px,2.4vw,30px);margin:0;text-wrap:balance}
+header.top p{margin:0;color:var(--muted);font-size:14px}
+.viewport{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:10px;box-shadow:0 10px 40px rgba(27,42,74,.25);background:var(--ivory)}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;background:var(--ivory);color:var(--navy);font-family:var(--f-body);overflow:hidden}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.controls button{font:800 15px var(--f-body);border:1px solid var(--line);background:var(--chip);color:var(--page-fg);border-radius:8px;padding:9px 14px;cursor:pointer}
+.controls button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.controls button.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.controls .info{font-size:14px;color:var(--muted);flex:1 1 220px;min-width:0}
+.progress{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--gold);width:0;transition:width .4s}
+.chapters{display:flex;flex-wrap:wrap;gap:6px}
+.chapters button{font:700 13px var(--f-body);border:1px solid var(--line);background:transparent;color:var(--page-fg);border-radius:20px;padding:5px 11px;cursor:pointer}
+.chapters button[aria-current="true"]{background:var(--gold);color:#1B2A4A;border-color:var(--gold)}
+.notes{background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.55}
+.notes b{font-family:var(--f-title)}
+.notes .ar{font-family:var(--f-ar);direction:rtl;text-align:right;font-size:17px;margin-top:6px}
+
+/* ===== stage internals (fixed light look: video frame) ===== */
+.bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.bg.savane{background:linear-gradient(180deg,#F6D9A0 0%,#F3E3C2 38%,#C9C48A 62%,#8DA86A 78%,#5E7F4A 100%)}
+.bg.savane::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:radial-gradient(ellipse at 20% 100%,#4E7040 0,transparent 60%),radial-gradient(ellipse at 80% 100%,#41623A 0,transparent 55%)}
+.bg.board{background:var(--ivory)}
+.bg.board::before{content:"";position:absolute;inset:40px;border:3px solid var(--sage);border-radius:36px}
+.bg img{width:100%;height:100%;object-fit:cover;display:block}
+.ph{position:absolute;right:110px;top:150px;width:440px;height:250px;border:3px dashed rgba(47,93,58,.55);border-radius:28px;display:flex;align-items:center;justify-content:center;text-align:center;font:800 24px var(--f-body);color:rgba(47,93,58,.85);background:rgba(250,246,236,.55);padding:30px;box-sizing:border-box}
+.ph small{display:block;font-size:18px;font-weight:600;margin-top:10px}
+.logo{position:absolute;top:36px;right:44px;background:var(--ivory);border-radius:14px;padding:12px 22px;font:italic 800 30px var(--f-title);color:#1A1A1A;box-shadow:0 2px 10px rgba(0,0,0,.08);z-index:20}
+.logo small{display:block;font:600 15px var(--f-body);font-style:normal;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+.band{position:absolute;left:0;bottom:44px;background:var(--navy);color:var(--gold);font:800 28px var(--f-body);padding:12px 34px 12px 50px;border-radius:0 40px 40px 0;z-index:20}
+.layer{position:absolute;inset:0}
+.title{font-family:var(--f-title);font-weight:800;color:var(--navy)}
+.card{position:absolute;background:var(--ivory);border-radius:30px;box-shadow:0 12px 40px rgba(27,42,74,.14);padding:48px 60px;box-sizing:border-box}
+.card.rule{border-top:10px solid var(--gold)}
+.sent{font:900 84px/1.25 var(--f-body);color:var(--navy);margin:0}
+.sent.md{font-size:64px}
+.sent.sm{font-size:52px}
+.w{position:relative;display:inline-block;transition:color .5s,transform .5s}
+.nom{color:var(--g-nom)} .verbe{color:var(--g-verbe)} .adj{color:var(--g-adj)} .pro{color:var(--g-pro)}
+.etre{color:var(--g-etre)}
+.hl-epi,.hl-att{background-repeat:no-repeat;background-size:0 100%;transition:background-size .9s ease;padding:0 .08em;border-radius:6px}
+.hl-epi{background-image:linear-gradient(var(--g-epi),var(--g-epi))}
+.hl-att{background-image:linear-gradient(var(--g-att),var(--g-att))}
+.on .hl-epi,.on.hl-epi,.on .hl-att,.on.hl-att{background-size:100% 100%}
+.ring{outline:0 solid var(--g-etre);border-radius:50px;transition:outline-width .4s,box-shadow .6s;padding:0 .12em;margin:0 .1em}
+.on .ring,.on.ring{outline-width:6px;box-shadow:0 0 30px rgba(30,136,229,.55)}
+.under{background-image:linear-gradient(var(--g-adj),var(--g-adj));background-repeat:no-repeat;background-position:0 92%;background-size:0 8px;transition:background-size .8s}
+.on .under,.on.under{background-size:100% 8px}
+.tag{display:inline-block;font:900 26px var(--f-body);letter-spacing:.08em;padding:8px 18px;border-radius:40px;vertical-align:middle;margin-left:18px}
+.tag.epi{background:var(--g-epi);color:#6a4c00}.tag.att{background:var(--g-att);color:#21511a}
+.ar-box{position:absolute;direction:rtl;text-align:right;font:700 44px/1.6 var(--f-ar);color:var(--navy);background:#fff;border-right:10px solid var(--forest);border-radius:24px;padding:26px 40px;box-shadow:0 8px 30px rgba(27,42,74,.12);box-sizing:border-box}
+.ar-box .lab{display:block;font:800 22px var(--f-body);direction:ltr;text-align:right;color:var(--forest);letter-spacing:.06em;margin-bottom:4px}
+.q{font:800 56px var(--f-body);color:var(--forest)}
+.chipw{display:inline-block;font:900 46px var(--f-body);padding:14px 32px;border-radius:60px;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.08);margin:10px}
+.fade{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.fade.on{opacity:1;transform:none}
+.pop{opacity:0;transform:scale(.6);transition:opacity .5s,transform .5s cubic-bezier(.3,1.6,.5,1)}
+.pop.on{opacity:1;transform:none}
+.timer{position:absolute;right:70px;bottom:130px;width:150px;height:150px;z-index:25;opacity:0;transition:opacity .4s}
+.timer.on{opacity:1}
+.timer svg{width:100%;height:100%;transform:rotate(-90deg)}
+.timer .n{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:900 64px var(--f-body);color:var(--navy)}
+.monkey{position:absolute;right:240px;bottom:120px;font:900 120px var(--f-title);color:var(--gold);opacity:0;transition:opacity .4s}
+.monkey.on{opacity:1;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-14px) rotate(6deg)}}
+.grid4{position:absolute;left:120px;right:120px;top:210px;bottom:330px;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.col{border-radius:26px;padding:34px 26px;background:#fff;box-shadow:0 8px 26px rgba(0,0,0,.07);text-align:center;border-top:12px solid}
+.col h3{margin:0 0 22px;font:900 40px var(--f-body)}
+.col p{font:800 38px/1.6 var(--f-body);margin:0}
+.bridge{position:absolute;left:0;right:0;top:400px;height:300px}
+.bridge .slot{position:absolute;top:70px;font:900 120px var(--f-body);opacity:0;transform:translateY(30px);transition:all .8s}
+.bridge .slot.on{opacity:1;transform:none}
+.bridge svg{position:absolute;left:0;top:0;width:100%;height:100%}
+.bridge path{stroke-dasharray:1200;stroke-dashoffset:1200;transition:stroke-dashoffset 1.4s ease}
+.bridge.lit path{stroke-dashoffset:0}
+.split{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+.split>div{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:60px}
+.split>div:first-child{background:#FFF7D6;border-right:6px solid var(--gold)}
+.split>div:last-child{background:#ECF7E6}
+.formula{font:800 40px var(--f-body);color:var(--forest)}
+.text-panel{position:absolute;left:80px;top:150px;width:1060px;bottom:120px;background:rgba(250,246,236,.97);border-radius:30px;padding:44px 56px;box-sizing:border-box;box-shadow:0 12px 40px rgba(27,42,74,.15)}
+.text-panel h2{margin:0 0 18px;font:800 54px var(--f-title)}
+.text-panel p{margin:0;font:800 38px/1.6 var(--f-body)}
+#lion-text{white-space:pre-line}
+.ex-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:22px}
+.ex-list li{font:800 56px/1.3 var(--f-body)}
+.ex-list li .n{color:var(--gold);margin-right:18px}
+.consigne{font:900 50px var(--f-body);color:var(--forest);margin:0 0 40px}
+.blank{display:inline-block;min-width:220px;border-bottom:6px dotted var(--navy);text-align:center}
+.bank{display:flex;gap:20px;margin-bottom:30px}
+.bank span{font:900 40px var(--f-body);color:var(--g-adj);background:#fff;border:3px solid var(--g-adj);border-radius:40px;padding:6px 28px}
+.sig{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;color:var(--navy)}
+.sig h2{font:800 130px var(--f-title);margin:0;letter-spacing:.04em}
+.sig .role{font:800 48px var(--f-body);color:var(--forest)}
+.sig .slogan{font:italic 600 52px var(--f-title);color:var(--gold);margin-top:20px}
+@media (prefers-reduced-motion: reduce){.stage *{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Animatique · L'adjectif épithète et l'adjectif attribut</h1>
+    <p>5AP · Les animaux sauvages · Monsieur Halim</p>
+  </header>
+  <div class="viewport" id="viewport"><div class="stage" id="stage"></div></div>
+  <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  <div class="controls">
+    <button id="prev" type="button">◀ Précédent</button>
+    <button id="next" type="button" class="primary">Suivant ▶</button>
+    <button id="auto" type="button">Lecture auto</button>
+    <button id="fs" type="button">Plein écran</button>
+    <span class="info" id="info"></span>
+  </div>
+  <nav class="chapters" id="chapters" aria-label="Étapes"></nav>
+  <section class="notes" id="notes" aria-live="polite"></section>
+</div>
+
+<script>
+(()=>{
+const stage=document.getElementById('stage'),vp=document.getElementById('viewport');
+function fit(){const s=vp.clientWidth/1920;stage.style.transform='scale('+s+')'}
+addEventListener('resize',fit);new ResizeObserver(fit).observe(vp);fit();
+
+// helpers to build marked-up sentences
+const N=t=>`<span class="w nom">${t}</span>`, V=t=>`<span class="w verbe">${t}</span>`, A=t=>`<span class="w adj">${t}</span>`,
+E=t=>`<span class="w etre ring">${t}</span>`, EP=t=>`<span class="w adj hl-epi">${t}</span>`, AT=t=>`<span class="w adj hl-att">${t}</span>`,
+P=t=>`<span class="w pro">${t}</span>`, U=t=>`<span class="w under">${t}</span>`;
+const img=(file,label,cls='savane')=>`<div class="bg ${cls}"><img src="img/${file}" alt="" onerror="this.remove()"></div>`+(label?`<div class="ph" data-ph="${file}">${label}<small>img/${file}</small></div>`:'');
+const ar=(txt,pos)=>`<div class="ar-box fade" data-s="${pos.s??1}" style="${pos.css}"><span class="lab">EN ARABE</span>${txt}</div>`;
+const timer=(s,sec=5)=>`<div class="timer" data-timer="${sec}" data-s="${s}"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#E9DCC0" stroke-width="8"/><circle class="arc" cx="50" cy="50" r="44" fill="none" stroke="#C9A961" stroke-width="8" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="0"/></svg><div class="n">${sec}</div></div><div class="monkey" data-s="${s}">?</div>`;
+
+// Each scene: chapter, band, time, html, steps (count), notes {fr, ar}
+const S=[];
+const add=o=>S.push(o);
+
+add({ch:'0 · Ouverture',t:'0:00',band:'',steps:2,html:`${img('img01-savane-lever.jpg','IMG-01 · Savane au lever du soleil')}
+<div class="card fade" data-s="0" style="left:360px;top:170px;width:1200px;text-align:center;padding:40px 60px">
+ <div class="title" style="font-size:96px;letter-spacing:.05em;white-space:nowrap">MONSIEUR HALIM</div>
+ <div style="font:800 40px var(--f-body);color:var(--forest)">Enseignant de français</div></div>
+<div class="card fade" data-s="1" style="left:260px;top:560px;width:1400px;text-align:center;padding:36px">
+ <div class="title" style="font-size:66px">L'adjectif <span class="hl-epi on" style="background-size:100% 100%">épithète</span> et l'adjectif <span class="hl-att" style="background-size:100% 100%">attribut</span></div>
+ <div style="font:800 34px var(--f-body);color:var(--gold);margin-top:10px">5AP · Projet : les animaux sauvages</div></div>`,
+ fr:'Générique : travelling sur la savane, puis apparition du titre.'});
+
+add({ch:'1 · Mission',t:'0:25',band:'1 · La mission du jour',steps:3,html:`${img('img10-collection-animaux.jpg','IMG-10 · Lion, girafe, singe, éléphant, crocodile','board')}
+<div class="card rule fade" data-s="0" style="left:120px;top:200px;width:900px">
+ <div style="font:900 32px var(--f-body);letter-spacing:.12em;color:var(--gold)">MISSION DU JOUR</div>
+ <p class="sent md" style="margin-top:16px">Décrire les animaux sauvages avec des ${A('adjectifs')}.</p></div>
+<div class="fade" data-s="1" style="position:absolute;left:120px;top:620px"><span class="q">Comment est le lion ?</span></div>
+${ar('اليوم عندنا مهمّة: نتعلّمو الكلمات اللي نوصفو بيها الحيوانات.',{s:2,css:'left:120px;top:760px;width:1000px'})}`,
+ fr:'Bonjour mes chers élèves ! Bienvenue dans la savane africaine… Pour bien présenter un animal, il faut savoir le décrire. Aujourd\'hui, notre mission : découvrir les adjectifs.',ar:'اليوم عندنا مهمّة: نتعلّمو الكلمات اللي نوصفو بيها الحيوانات.'});
+
+add({ch:'2 · Nature des mots',t:'1:25',band:'2 · La nature des mots',steps:2,html:`<div class="bg board"></div>
+<div class="title fade on" style="position:absolute;left:120px;top:90px;font-size:70px">Chaque mot a une nature</div>
+<div class="grid4">
+ <div class="col pop" data-s="0" style="border-color:var(--g-nom)"><h3 class="nom">NOM</h3><p>lion<br>girafe</p></div>
+ <div class="col pop" data-s="0" style="border-color:var(--g-verbe)"><h3 class="verbe">VERBE</h3><p>court<br>mange</p></div>
+ <div class="col pop" data-s="0" style="border-color:var(--g-adj)"><h3 class="adj">ADJECTIF</h3><p>petit<br>grand</p></div>
+ <div class="col pop" data-s="0" style="border-color:var(--g-pro)"><h3 class="pro" style="font-size:32px">PRONOM PERSONNEL</h3><p>il, elle<br>ils, elles</p></div>
+</div>
+${ar('ببساطة، كل كلمة في الجملة عندها نوع: اسم، فعل، صفة، ولا ضمير.',{s:1,css:'left:420px;top:830px;width:1080px;font-size:40px;padding:18px 36px'})}`,
+ fr:'Dans une phrase, chaque mot possède une nature. Il peut être un nom, un verbe, un adjectif ou un pronom personnel.',ar:'ببساطة، كل كلمة في الجملة عندها نوع. كاين اسم، فعل، صفة، ولا ضمير. وكل كلمة عندها دور خاص في الجملة.'});
+
+add({ch:'2a · Le nom',t:'1:45',band:'2 · Le nom — الاسم',steps:2,html:`${img('img02-nature-des-mots.jpg','IMG-02 · Zone 1 : lion, arbre, forêt')}
+<div class="card fade on" style="left:120px;top:170px;width:980px"><div class="title" style="font-size:60px">Le <span class="nom">nom</span></div>
+<p class="sent md" style="margin-top:20px">le ${N('lion')} · l'${N('arbre')}<br>la ${N('forêt')}</p>
+<p style="font:800 34px var(--f-body);color:var(--forest);margin:18px 0 0">Il nomme un animal, une personne, une chose, un lieu.</p></div>
+${ar('الاسم هو الكلمة اللي نسمّيو بيها حيوان، إنسان، حاجة ولا بلاصة.<br>قدّامو غالباً: le, la, les, un, une',{s:1,css:'left:120px;top:690px;width:1100px'})}`,
+ fr:'Le nom sert à nommer : un animal, une personne, une chose ou un lieu. Le lion, l\'arbre, la forêt : ce sont des noms.',ar:'الاسم هو الكلمة اللي نسمّيو بيها حيوان، إنسان، حاجة ولا بلاصة. مثلاً: lion يعني أسد، arbre شجرة، forêt غابة.'});
+
+add({ch:'2b · Le verbe',t:'2:20',band:'2 · Le verbe — الفعل',steps:2,html:`${img('img02-nature-des-mots.jpg','IMG-02 · Zone 2 : le lion court')}
+<div class="card fade on" style="left:120px;top:170px;width:980px"><div class="title" style="font-size:60px">Le <span class="verbe">verbe</span></div>
+<p class="sent md" style="margin-top:20px">Le ${N('lion')} ${V('court')}.<br>Le ${N('lion')} ${V('mange')}.</p>
+<p class="q" style="font-size:40px;margin:18px 0 0">Que fait le lion ?</p></div>
+${ar('الفعل يقولنا واش يدير الحيوان ولا الشخص.<br>اسقساو: واش يدير الأسد؟',{s:1,css:'left:120px;top:700px;width:1000px'})}`,
+ fr:'Le verbe dit ce que fait le sujet. Pour le trouver : que fait le lion ? Court, mange : ce sont des verbes.',ar:'الفعل هو الكلمة اللي تقولنا واش يدير الحيوان ولا الشخص. le lion court، الأسد يجري.'});
+
+add({ch:'2c · L\'adjectif',t:'2:55',band:'2 · L\'adjectif — الصفة',steps:2,html:`${img('img02-nature-des-mots.jpg','IMG-02 · Zone 3 : lionceau et grand lion')}
+<div class="card fade on" style="left:120px;top:170px;width:980px"><div class="title" style="font-size:60px">L'<span class="adj">adjectif</span></div>
+<p class="sent md" style="margin-top:20px">un ${A('petit')} ${N('lion')}<br>un ${A('grand')} ${N('lion')}</p>
+<p class="q" style="font-size:40px;margin:18px 0 0">Comment est le lion ?</p></div>
+${ar('الصفة تعطينا معلومات إضافية على الاسم:<br>الحجم، اللون، الشكل ولا صفات الحيوان.',{s:1,css:'left:120px;top:700px;width:1000px'})}`,
+ fr:'L\'adjectif donne des informations supplémentaires sur le nom. Il nous aide à décrire un animal.',ar:'يعني الصفة تعطينا معلومات إضافية على الاسم، مثلاً الحجم، اللون، الشكل أو صفات الحيوان.'});
+
+add({ch:'2d · Le pronom',t:'3:35',band:'2 · Le pronom personnel — الضمير',steps:3,html:`${img('img02-nature-des-mots.jpg','IMG-02 · Zone 4 : enfant + bulle')}
+<div class="card fade on" style="left:120px;top:170px;width:1080px"><div class="title" style="font-size:56px">Le <span class="pro">pronom personnel</span></div>
+<p class="sent md" style="margin-top:20px">${N('Le lion')} rugit. <span class="fade" data-s="0" style="display:inline-block">→ ${P('Il')} rugit.</span><br>${N('La girafe')} mange. <span class="fade" data-s="1" style="display:inline-block">→ ${P('Elle')} mange.</span></p></div>
+${ar('الضمير يعوّض الاسم باش ما نعاودوش نفس الكلمة:<br>il، elle، ils، elles',{s:2,css:'left:120px;top:660px;width:1000px'})}`,
+ fr:'Le pronom personnel remplace un nom pour ne pas le répéter. Le lion → il, la girafe → elle, les lions → ils, les girafes → elles.',ar:'الضمير يعوّض الاسم، باش ما نعاودوش نفس الكلمة بزّاف.'});
+
+add({ch:'3 · Découverte',t:'4:05',band:'3 · Découvrir l\'adjectif',steps:3,html:`${img('img03-lion-majestueux.jpg','IMG-03 · Lion majestueux')}
+<div class="fade on" style="position:absolute;left:120px;top:180px"><span class="q" style="font-size:72px">Comment est le lion ?</span></div>
+<div style="position:absolute;left:100px;top:340px;width:1000px">
+ <span class="chipw adj pop" data-s="0">grand</span><span class="chipw adj pop" data-s="0">fort</span><br>
+ <span class="chipw adj pop" data-s="1">féroce</span><span class="chipw adj pop" data-s="1">rapide</span></div>
+<div class="card fade" data-s="2" style="left:120px;top:640px;width:1000px;padding:34px 50px">
+ <p class="sent sm">La girafe est grand<span style="color:var(--gold)">e</span> et élégant<span style="color:var(--gold)">e</span>.</p>
+ <p style="font:700 30px var(--f-body);color:var(--forest);margin:8px 0 0">Nom féminin → adjectif au féminin (+ e).</p></div>`,
+ fr:'Observez bien ce lion. Comment est le lion ? (pause 3 s) Il est grand, fort, féroce, rapide ! Puis l\'éléphant (énorme, lourd), la girafe (grande, élégante), le singe (agile).',ar:'الزرافة مؤنّث، لهذا الصفة تولّي مؤنّثة: نزيدو e.'});
+
+add({ch:'4 · Identifier',t:'5:30',band:'4 · Trouver l\'adjectif',steps:2,html:`<div class="bg board"></div>
+<div style="position:absolute;left:160px;top:150px;right:420px"><p class="consigne">À vous de réfléchir ! Trouvez l'adjectif.</p>
+<ul class="ex-list step-target" data-s="1">
+<li><span class="n">1</span>Le lion <span class="w adj-x">féroce</span> chasse.</li>
+<li><span class="n">2</span>La girafe a un <span class="w adj-x">long</span> cou.</li>
+<li><span class="n">3</span>Le singe <span class="w adj-x">agile</span> grimpe.</li>
+<li><span class="n">4</span>Le crocodile <span class="w ring">est</span> <span class="w adj-x">dangereux</span>.</li>
+</ul></div>${timer(0)}`,
+ fr:'Lisez chaque phrase et trouvez l\'adjectif : comment est l\'animal ? (5 s) Correction : féroce, long, agile, dangereux. Remarquez : dans la phrase 4, il y a « est » entre le nom et l\'adjectif…'});
+
+add({ch:'5 · Épithète',t:'6:35',band:'5 · L\'adjectif épithète',steps:3,html:`${img('img05-lionceau.jpg','IMG-05 · Le petit lion')}
+<div style="position:absolute;left:120px;top:190px;display:flex;flex-direction:column;gap:30px">
+ <p class="sent fade on">Le ${EP('petit')} ${N('lion')}.</p>
+ <p class="sent fade" data-s="0">La ${N('girafe')} ${EP('élégante')}.</p>
+ <p class="sent fade" data-s="0">Le ${N('singe')} ${EP('agile')}.</p></div>
+<div class="card rule fade" data-s="1" style="left:120px;top:600px;width:840px;padding:34px 50px">
+ <div class="title" style="font-size:50px">L'adjectif épithète <span class="tag epi">ÉPITHÈTE</span></div>
+ <p style="font:800 36px/1.4 var(--f-body);margin:12px 0 0">Il est placé <b>directement à côté du nom</b>, avant ou après lui, <b>sans verbe</b> entre les deux.</p></div>
+${ar('الصفة épithète لاصقة في الاسم مباشرة، قبلو ولا بعدو.',{s:2,css:'left:1010px;top:600px;width:800px;font-size:40px'})}`,
+ fr:'Où est l\'adjectif ? Juste à côté du nom. Y a-t-il un verbe entre les deux ? Non ! L\'adjectif épithète est directement lié au nom.',ar:'الصفة épithète لاصقة في الاسم مباشرة، قبلو ولا بعدو. ما كانش فعل بيناتهم.'});
+
+add({ch:'6 · Attribut',t:'7:55',band:'6 · L\'adjectif attribut',steps:3,html:`${img('img07-lion-rocher.jpg','IMG-07 · Le lion fort sur un rocher')}
+<div style="position:absolute;left:120px;top:170px;display:flex;flex-direction:column;gap:22px">
+ <p class="sent md fade on">Le ${N('lion')} ${E('est')} ${AT('fort')}.</p>
+ <p class="sent md fade on">La ${N('girafe')} ${E('est')} ${AT('élégante')}.</p>
+ <p class="sent md fade" data-s="1">Le ${N('singe')} ${E('est')} ${AT('agile')}.</p>
+ <p class="sent md fade" data-s="1">L'${N('éléphant')} ${E('est')} ${AT('énorme')}.</p></div>
+<div class="fade" data-s="0" style="position:absolute;left:120px;top:770px;font:900 50px var(--f-body);color:var(--g-etre)">Attention, regardez le verbe être !</div>`,
+ fr:'Où est l\'adjectif ? Il est séparé du nom. Entre les deux : le verbe être.'});
+
+add({ch:'6b · Le pont',t:'8:35',band:'6 · Le verbe être relie',steps:4,html:`${img('img08-pont-etre.jpg','','board')}
+<div class="bridge" id="bridge">
+ <svg viewBox="0 0 1920 300" preserveAspectRatio="none"><path d="M520 200 Q960 -40 1400 200" fill="none" stroke="#1E88E5" stroke-width="14" stroke-linecap="round" opacity=".8"/></svg>
+ <div class="slot nom" data-s="0" style="left:240px">LION</div>
+ <div class="slot etre" data-s="1" style="left:820px;top:150px"><span class="ring" style="outline-width:6px;box-shadow:0 0 40px rgba(30,136,229,.6)">EST</span></div>
+ <div class="slot adj" data-s="2" style="left:1440px"><span class="hl-att" style="background-size:100% 100%">FORT</span></div>
+</div>
+<p class="sent fade" data-s="3" style="position:absolute;left:0;right:0;top:200px;text-align:center">Le ${N('lion')} <span class="etre">EST</span> <span class="adj">fort</span>.</p>
+${ar('الفعل être هو اللي يربط الاسم بالصفة، كيما القنطرة.',{s:3,css:'left:440px;top:770px;width:1040px;font-size:40px'})}`,
+ fr:'Le verbe être est comme un pont : il relie le nom à l\'adjectif. Au pluriel : sont (Les lions sont forts).',ar:'الصفة attribut ما هيش لاصقة في الاسم. بيناتهم كاين الفعل être: est ولا sont.'});
+
+add({ch:'6c · Règle',t:'9:12',band:'6 · L\'adjectif attribut',steps:1,html:`<div class="bg board"></div>
+<div class="card rule fade on" style="left:200px;top:180px;width:1520px">
+ <div class="title" style="font-size:64px">L'adjectif attribut <span class="tag att">ATTRIBUT</span></div>
+ <p style="font:800 44px/1.45 var(--f-body);margin:20px 0 30px">Il donne une information sur le nom.<br>Il est <span class="etre">relié au nom par le verbe être</span> (est, sont).</p>
+ <p class="sent md on">Le ${N('lion')} ${E('est')} ${AT('fort')}.</p>
+ <p class="sent md on">Les ${N('girafes')} ${E('sont')} ${AT('élégantes')}.</p></div>`,
+ fr:'Retenez : l\'adjectif attribut donne une information sur le nom. Il est relié au nom par le verbe être.'});
+
+add({ch:'7 · Comparaison',t:'9:30',band:'7 · Épithète ou attribut ?',steps:3,html:`<div class="split">
+ <div><p class="sent fade on">Le ${EP('grand')} ${N('lion')}.</p><span class="tag epi fade" data-s="0">ÉPITHÈTE</span><div class="formula fade" data-s="0">nom + adjectif, collés</div></div>
+ <div><p class="sent fade on">Le ${N('lion')} ${E('est')} ${AT('grand')}.</p><span class="tag att fade" data-s="1">ATTRIBUT</span><div class="formula fade" data-s="1">nom → <span class="etre">être</span> → adjectif</div></div>
+</div>
+<div class="card rule fade" data-s="2" style="left:460px;top:800px;width:1000px;padding:24px 40px;text-align:center">
+ <div style="font:900 26px var(--f-body);letter-spacing:.12em;color:var(--gold)">L'ASTUCE DE MONSIEUR HALIM</div>
+ <div style="font:900 40px var(--f-body);margin-top:6px">Pas de verbe être → épithète · Verbe être → attribut</div></div>`,
+ fr:'Le même nom, le même adjectif. Y a-t-il le verbe être entre le nom et l\'adjectif ? Non → épithète. Oui → attribut.',ar:'باش تفرّقو: شوفو إذا كاين الفعل être بين الاسم والصفة. ما كانش؟ épithète. كاين؟ attribut.'});
+
+add({ch:'8.1 · Souligne',t:'10:20',band:'8 · Exercice 1',steps:2,html:`<div class="bg board"></div>
+<div style="position:absolute;left:160px;top:150px;right:420px"><p class="consigne">Souligne les adjectifs.</p>
+<ul class="ex-list step-target" data-s="1">
+<li><span class="n">1</span>Le singe ${U('malin')} saute.</li>
+<li><span class="n">2</span>L'éléphant ${U('gris')} boit de l'eau.</li>
+<li><span class="n">3</span>La girafe a un ${U('long')} cou.</li>
+<li><span class="n">4</span>Le guépard est ${U('rapide')}.</li></ul></div>${timer(0)}`,
+ fr:'Maintenant, essayez seuls ! (5 s) Correction : malin, gris, long, rapide.'});
+
+add({ch:'8.2 · Entoure',t:'10:45',band:'8 · Exercice 2',steps:2,html:`<div class="bg board"></div>
+<div style="position:absolute;left:160px;top:150px;right:420px"><p class="consigne">Entoure le verbe être.</p>
+<ul class="ex-list step-target" data-s="1">
+<li><span class="n">1</span>Le crocodile <span class="w ring">est</span> dangereux.</li>
+<li><span class="n">2</span>Les singes <span class="w ring">sont</span> joyeux.</li>
+<li><span class="n">3</span>La girafe <span class="w ring">est</span> grande.</li></ul></div>${timer(0)}`,
+ fr:'Correction : est, sont, est. Est et sont sont deux formes du verbe être.'});
+
+const ex3=[['Le lion <b class="adj">féroce</b> rugit.','epi'],['Le lion est <b class="adj">féroce</b>.','att'],['Les éléphants sont <b class="adj">énormes</b>.','att'],['Une <b class="adj">petite</b> girafe court.','epi'],['Le singe est <b class="adj">agile</b>.','att']];
+add({ch:'8.3 · Épi/Att',t:'11:05',band:'8 · Exercice 3',steps:2,html:`<div class="bg board"></div>
+<div style="position:absolute;left:160px;top:130px;right:380px"><p class="consigne" style="margin-bottom:28px">Épithète ou attribut ?</p>
+<ul class="ex-list" style="gap:16px">${ex3.map((e,i)=>`<li style="font-size:50px"><span class="n">${i+1}</span>${e[0].replace(/(est|sont)(?= )/,'<span class="w ring">$1</span>')}<span class="tag ${e[1]} pop" data-s="1">${e[1]=='epi'?'ÉPITHÈTE':'ATTRIBUT'}</span></li>`).join('')}</ul></div>${timer(0)}`,
+ fr:'L\'adjectif en couleur est-il épithète ou attribut ? (5 s) Correction : épithète, attribut, attribut, épithète, attribut.'});
+
+add({ch:'8.4 · Complète',t:'11:40',band:'8 · Exercice 4',steps:2,html:`<div class="bg board"></div>
+<div style="position:absolute;left:160px;top:130px;right:380px"><p class="consigne" style="margin-bottom:24px">Complète avec l'adjectif qui convient.</p>
+<div class="bank"><span>rapide</span><span>petits</span><span>fort</span><span>longue</span></div>
+<ul class="ex-list" style="gap:18px">
+<li style="font-size:48px"><span class="n">1</span>Le guépard est <span class="blank"><span class="pop adj" data-s="1">rapide</span></span> : il court très vite.</li>
+<li style="font-size:48px"><span class="n">2</span>Les <span class="blank"><span class="pop adj" data-s="1">petits</span></span> singes jouent.</li>
+<li style="font-size:48px"><span class="n">3</span>L'éléphant est <span class="blank"><span class="pop adj" data-s="1">fort</span></span> : il porte un tronc.</li>
+<li style="font-size:48px"><span class="n">4</span>Le crocodile a une <span class="blank"><span class="pop adj" data-s="1">longue</span></span> queue.</li></ul></div>${timer(0)}`,
+ fr:'Correction : rapide (attribut), petits (épithète), fort (attribut), longue (épithète). Petits : pluriel comme singes ; longue : féminin comme queue.'});
+
+add({ch:'8.5 · Mini-texte',t:'12:10',band:'8 · Exercice 5',steps:2,html:`${img('img17-singe-banane.jpg','IMG-17 · Petit singe et banane')}
+<div class="text-panel" style="width:1080px"><p class="consigne" style="font-size:42px;margin-bottom:26px">Trouve les 4 adjectifs : épithète ou attribut ?</p>
+<p class="step-target" data-s="1" style="font-size:52px">La forêt <span class="w ring">est</span> <span class="w hl-att">calme</span>. Un <span class="w hl-epi">petit</span> singe mange une banane <span class="w hl-epi">jaune</span>. Il <span class="w ring">est</span> <span class="w hl-att">content</span>.</p></div>${timer(0,6)}`,
+ fr:'(6 s) calme : attribut · petit : épithète · jaune : épithète · content : attribut (« il » remplace le petit singe).'});
+
+add({ch:'9 · Texte du lion',t:'12:40',band:'9 · Le roi de la savane',steps:4,html:`${img('img13-texte-lion.jpg','')}
+<div class="text-panel"><h2>Le roi de la savane</h2>
+<p id="lion-text">Le lion vit dans la savane <span class="w hl-epi p2">africaine</span>.
+Ce <span class="w hl-epi p2">grand</span> animal <span class="w hl-epi p2">sauvage</span> <span class="w ring p1">est</span> <span class="w hl-att p2">carnivore</span> : il mange de la viande.
+Le lion <span class="w ring p1">est</span> <span class="w hl-att p2">fort</span> et <span class="w hl-att p2">rapide</span>.
+Il a une crinière <span class="w hl-epi p2">dorée</span>.
+La lionne <span class="w ring p1">est</span> <span class="w hl-att p2">agile</span>.
+Elle chasse des zèbres et des gazelles.
+Les <span class="w hl-epi p2">petits</span> lionceaux <span class="w ring p1">sont</span> <span class="w hl-att p2">fragiles</span>.
+Ils vivent avec leur famille.</p></div>
+<div class="fade" data-s="0" style="position:absolute;left:1200px;top:150px;width:640px;font:900 40px/1.35 var(--f-body);color:var(--forest);background:rgba(250,246,236,.95);padding:24px 30px;border-radius:24px">Souligne les adjectifs.<br>Entoure le verbe être.</div>
+${timer(0,6)}
+<div class="card fade" data-s="3" style="left:1200px;top:640px;width:640px;padding:26px 34px;font:800 32px/1.5 var(--f-body)">
+<span class="tag epi" style="margin:0">5 ÉPITHÈTES</span><br><span class="tag att" style="margin:10px 0 0">5 ATTRIBUTS</span><br><span class="etre">4 verbes être</span></div>`,
+ fr:'Lecture expressive, puis : soulignez les adjectifs et entourez le verbe être (6 s). Passe 1 : est, est, est, sont. Passe 2 : épithètes en jaune, attributs en vert.'});
+
+add({ch:'10 · Trace écrite',t:'13:55',band:'10 · Trace écrite',steps:3,html:`${img('img14-cloture.jpg','','savane')}
+<div class="card fade on" style="left:260px;top:110px;width:1400px;padding:40px 60px">
+ <div class="title" style="font-size:58px;text-align:center">L'adjectif épithète et l'adjectif attribut</div>
+ <p style="font:800 38px var(--f-body);text-align:center;margin:14px 0 26px">L'<span class="adj">adjectif</span> donne des informations sur le <span class="nom">nom</span> : il le décrit.</p>
+ <div class="fade" data-s="0" style="background:#FFF7D6;border-radius:22px;padding:22px 34px;margin-bottom:18px">
+  <p style="font:900 38px var(--f-body);margin:0">L'adjectif épithète est placé directement à côté du nom.</p>
+  <p class="sent sm" style="margin:6px 0 0">→ Le ${EP('petit')} lion. La girafe ${EP('élégante')}.</p></div>
+ <div class="fade" data-s="1" style="background:#ECF7E6;border-radius:22px;padding:22px 34px;margin-bottom:18px">
+  <p style="font:900 38px var(--f-body);margin:0">L'adjectif attribut est relié au nom par le verbe <span class="etre">être</span>.</p>
+  <p class="sent sm" style="margin:6px 0 0;font-size:46px">→ Le lion ${E('est')} ${AT('fort')}. Les lionceaux ${E('sont')} ${AT('fragiles')}.</p></div>
+ <p class="fade" data-s="2" style="font:900 36px var(--f-body);color:var(--gold);text-align:center;margin:8px 0 0">Astuce : pas de verbe être → épithète · verbe être → attribut</p></div>`,
+ fr:'Retenons l\'essentiel… Mettez la vidéo en pause et recopiez cette trace écrite dans votre cahier.',ar:'حبّسو الفيديو وكتبو هذا الملخّص في الكرّاس.'});
+
+add({ch:'11 · Signature',t:'14:35',band:'',steps:1,html:`${img('img11-famille-lions.jpg','','savane')}
+<div class="layer" style="background:radial-gradient(ellipse at center,rgba(250,246,236,.95) 0,rgba(250,246,236,.75) 45%,rgba(250,246,236,0) 75%)"></div>
+<div class="sig fade on"><h2>MONSIEUR HALIM</h2><div class="role">Enseignant de français</div><div class="slogan">« Apprendre le français, pas à pas, avec plaisir. »</div></div>`,
+ fr:'Bravo mes chers élèves ! Vous savez maintenant reconnaître l\'adjectif épithète et l\'adjectif attribut. À très bientôt !'});
+
+// ===== player =====
+let si=0, step=0, autoT=null, tick=null;
+const bar=document.getElementById('bar'),info=document.getElementById('info'),notes=document.getElementById('notes'),chaps=document.getElementById('chapters');
+S.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=s.ch;b.onclick=()=>go(i,0);chaps.appendChild(b)});
+function render(){
+  clearInterval(tick);
+  const s=S[si];
+  stage.innerHTML=s.html+(s.band?`<div class="band">${s.band}</div>`:'')+(si>0&&si<S.length-1?`<div class="logo">Monsieur Halim<small>logo original ici</small></div>`:'');
+  // hide placeholder if image loads
+  stage.querySelectorAll('.bg img').forEach(im=>{im.addEventListener('load',()=>{const ph=stage.querySelector('.ph');if(ph)ph.remove()})});
+  apply(); chaps.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-current',i===si));
+  notes.innerHTML=`<b>${s.ch}</b> · ${s.t}<br>${s.fr}`+(s.ar?`<div class="ar">${s.ar}</div>`:'');
+}
+function apply(){
+  const s=S[si];
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    stage.querySelectorAll('[data-s]').forEach(el=>{const k=+el.dataset.s;el.classList.toggle('on',step>k)});
+    // bridge
+    const br=stage.querySelector('#bridge'); if(br) br.classList.toggle('lit',step>1);
+    // lion text passes
+    stage.querySelectorAll('.p1').forEach(e=>e.classList.toggle('on',step>1));
+    stage.querySelectorAll('.p2').forEach(e=>e.classList.toggle('on',step>2));
+    // ex 4 identify: color adjectives
+    stage.querySelectorAll('.adj-x').forEach(e=>{e.style.color=step>1?'var(--g-adj)':'';e.style.transform=step>1?'scale(1.08)':''});
+    stage.querySelectorAll('.step-target.on .ring').forEach(e=>e.classList.add('on'));
+    stage.querySelectorAll('.step-target.on .hl-epi,.step-target.on .hl-att,.step-target.on .under').forEach(e=>e.classList.add('on'));
+    if(si===S.findIndex(x=>x.ch.startsWith('8.3'))&&step>1) stage.querySelectorAll('.ring').forEach(e=>e.classList.add('on'));
+    // auto-run highlights on intro scenes where marked words should be visible at rest
+    stage.querySelectorAll('.fade.on .hl-epi,.fade.on .hl-att,.fade.on .ring,.card.on .hl-epi,.card.on .hl-att,.card.on .ring,.sent.on .ring,.sent.on .hl-att').forEach(e=>e.classList.add('on'));
+    // timer + thinking monkey are visible only during the reflection step
+    stage.querySelectorAll('.timer,.monkey').forEach(e=>e.classList.toggle('on',step===1));
+    const tm=stage.querySelector('.timer');
+    if(tm&&step===1){runTimer(tm)}
+  }));
+  const total=S.reduce((a,x)=>a+x.steps,0), done=S.slice(0,si).reduce((a,x)=>a+x.steps,0)+step;
+  bar.style.width=(100*done/(total))+'%';
+  info.textContent=`Scène ${si+1}/${S.length} · étape ${step+1}/${S[si].steps+1} · ← → pour avancer`;
+}
+function runTimer(tm){
+  const sec=+tm.dataset.timer, arc=tm.querySelector('.arc'), n=tm.querySelector('.n'); let left=sec;
+  tm.classList.add('on'); n.textContent=left; arc.style.transition='none'; arc.style.strokeDashoffset=0;
+  requestAnimationFrame(()=>{arc.style.transition=`stroke-dashoffset ${sec}s linear`;arc.style.strokeDashoffset=276.5});
+  tick=setInterval(()=>{left--;if(left<=0){clearInterval(tick);n.textContent='✓';setTimeout(()=>{if(S[si]&&step===1)next()},500)}else n.textContent=left},1000);
+}
+function go(i,st){si=Math.max(0,Math.min(S.length-1,i));step=st;render()}
+function next(){if(step<S[si].steps){step++;clearInterval(tick);const tm=stage.querySelector('.timer');if(tm&&step>1){tm.classList.remove('on');stage.querySelector('.monkey')?.classList.remove('on')}apply()}else if(si<S.length-1)go(si+1,0)}
+function prev(){if(step>0){step--;apply()}else if(si>0)go(si-1,S[si-1].steps)}
+document.getElementById('next').onclick=next;document.getElementById('prev').onclick=prev;
+addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();next()}if(e.key==='ArrowLeft'){e.preventDefault();prev()}});
+const ab=document.getElementById('auto');
+ab.onclick=()=>{if(autoT){clearInterval(autoT);autoT=null;ab.textContent='Lecture auto'}else{autoT=setInterval(()=>{if(!stage.querySelector('.timer.on')||step!==1)next()},3800);ab.textContent='Pause'}};
+document.getElementById('fs').onclick=()=>{try{const p=vp.requestFullscreen?.();p&&p.catch(()=>{})}catch(e){}};
+document.addEventListener('fullscreenchange',fit);
+go(0,0);
+})();
+</script>
