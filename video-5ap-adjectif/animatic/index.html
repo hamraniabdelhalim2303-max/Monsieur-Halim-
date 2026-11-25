@@ -126,6 +126,7 @@ header.top p{margin:0;color:var(--muted);font-size:14px}
     <button id="next" type="button" class="primary">Suivant ▶</button>
     <button id="auto" type="button">Lecture auto</button>
     <button id="fs" type="button">Plein écran</button>
+    <button id="mode" type="button">Version planches illustrées</button>
     <span class="info" id="info"></span>
   </div>
   <nav class="chapters" id="chapters" aria-label="Étapes"></nav>
@@ -147,7 +148,7 @@ const ar=(txt,pos)=>`<div class="ar-box fade" data-s="${pos.s??1}" style="${pos.
 const timer=(s,sec=5)=>`<div class="timer" data-timer="${sec}" data-s="${s}"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#E9DCC0" stroke-width="8"/><circle class="arc" cx="50" cy="50" r="44" fill="none" stroke="#C9A961" stroke-width="8" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="0"/></svg><div class="n">${sec}</div></div><div class="monkey" data-s="${s}">?</div>`;
 
 // Each scene: chapter, band, time, html, steps (count), notes {fr, ar}
-const S=[];
+let S=[];
 const add=o=>S.push(o);
 
 add({ch:'0 · Ouverture',t:'0:00',band:'',steps:2,html:`${img('img01-savane-lever.jpg','IMG-01 · Savane au lever du soleil')}
@@ -346,13 +347,34 @@ add({ch:'11 · Signature',t:'14:35',band:'',steps:1,html:`${img('img11-famille-l
  fr:'Bravo mes chers élèves ! Vous savez maintenant reconnaître l\'adjectif épithète et l\'adjectif attribut. À très bientôt !'});
 
 // ===== player =====
+// ===== version « planches illustrées » (image fournie par l'enseignant) =====
+const PL=[
+ ['01-titre','Titre','0:00','Générique : « L\'adjectif épithète et l\'adjectif attribut — Les animaux sauvages ».'],
+ ['02-objectifs','Objectifs','0:25','Aujourd\'hui, nous allons apprendre à identifier les mots, reconnaître l\'adjectif, distinguer épithète et attribut.'],
+ ['03-nature-des-mots','Nature des mots','1:25','Nom, verbe, adjectif, pronom personnel — avec l\'arabe sous chaque étiquette.'],
+ ['04-le-nom','Le nom','1:45','Le nom désigne une personne, un animal ou une chose : le lion, la forêt, une montagne.'],
+ ['05-le-verbe','Le verbe','2:20','Le verbe exprime une action ou un état : il chasse, elle dort.'],
+ ['06-l-adjectif','L\'adjectif','2:55','L\'adjectif donne des informations sur le nom : un lion féroce, une forêt dense.'],
+ ['07-le-pronom','Le pronom','3:35','Le pronom personnel remplace un nom : il, elle, ils, elles.'],
+ ['08-identifier','Identifier','5:30','À corriger : « Le tigre est un animal fort » — ici « fort » est épithète de « animal ». Remplacer par « Le tigre est fort » ou « Le tigre fort chasse ».'],
+ ['09-epithete','Épithète','6:35','L\'adjectif épithète est placé directement à côté du nom : un tigre sauvage.'],
+ ['10-attribut','Attribut','7:55','L\'adjectif attribut est séparé du nom par le verbe être : le tigre est sauvage.'],
+ ['11-a-retenir','À retenir','9:30','Épithète : juste à côté du nom. Attribut : après le verbe être. Le lion est courageux.'],
+ ['12-exercice-1','Exercice 1','10:20','À corriger : « L\'éléphant grand marche lentement » → « Le grand éléphant marche lentement ».'],
+ ['13-exercice-2','Exercice 2','10:45','Entourez l\'adjectif : brun, noire, rusé (« rusé » n\'est pas entouré sur la planche).'],
+ ['14-exercice-3','Exercice 3','12:10','À compléter : les adjectifs sont grand (épithète), courageux et puissant (attributs). Seul « courageux » est souligné sur la planche.'],
+ ['15-recapitulons','Récapitulons','13:55','L\'adjectif épithète est collé au nom. L\'attribut est séparé par le verbe être. Il donne des informations sur le nom.'],
+ ['16-fin','Fin','14:35','À bientôt mes amis ! — Monsieur Halim.']
+].map(([f,ch,t,fr])=>({ch,t,band:'',steps:0,fr,html:`<div class="bg" style="background:#FAF6EC"><img src="planches/${f}.jpg" alt=""></div>`,planche:true}));
+const MAIN=S;
 let si=0, step=0, autoT=null, tick=null;
 const bar=document.getElementById('bar'),info=document.getElementById('info'),notes=document.getElementById('notes'),chaps=document.getElementById('chapters');
-S.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=s.ch;b.onclick=()=>go(i,0);chaps.appendChild(b)});
+function buildChaps(){chaps.innerHTML='';S.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=s.ch;b.onclick=()=>go(i,0);chaps.appendChild(b)})}
+buildChaps();
 function render(){
   clearInterval(tick);
   const s=S[si];
-  stage.innerHTML=s.html+(s.band?`<div class="band">${s.band}</div>`:'')+(si>0&&si<S.length-1?`<div class="logo">Monsieur Halim<small>logo original ici</small></div>`:'');
+  stage.innerHTML=s.html+(s.band?`<div class="band">${s.band}</div>`:'')+(!s.planche&&si>0&&si<S.length-1?`<div class="logo">Monsieur Halim<small>logo original ici</small></div>`:'');
   // hide placeholder if image loads
   stage.querySelectorAll('.bg img').forEach(im=>{im.addEventListener('load',()=>{const ph=stage.querySelector('.ph');if(ph)ph.remove()})});
   apply(); chaps.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-current',i===si));
@@ -390,6 +412,8 @@ function runTimer(tm){
   tick=setInterval(()=>{left--;if(left<=0){clearInterval(tick);n.textContent='✓';setTimeout(()=>{if(S[si]&&step===1)next()},500)}else n.textContent=left},1000);
 }
 function go(i,st){si=Math.max(0,Math.min(S.length-1,i));step=st;render()}
+const mb=document.getElementById('mode');
+mb.onclick=()=>{const pl=S===MAIN;S=pl?PL:MAIN;mb.textContent=pl?'Version animée':'Version planches illustrées';buildChaps();go(0,0)};
 function next(){if(step<S[si].steps){step++;clearInterval(tick);const tm=stage.querySelector('.timer');if(tm&&step>1){tm.classList.remove('on');stage.querySelector('.monkey')?.classList.remove('on')}apply()}else if(si<S.length-1)go(si+1,0)}
 function prev(){if(step>0){step--;apply()}else if(si>0)go(si-1,S[si-1].steps)}
 document.getElementById('next').onclick=next;document.getElementById('prev').onclick=prev;
