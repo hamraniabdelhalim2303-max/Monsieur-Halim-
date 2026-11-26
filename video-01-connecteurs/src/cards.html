@@ -9,7 +9,12 @@ body { background: transparent; font-family: Inter, sans-serif; }
 .hd { width: 1920px; height: 1080px; }
 .ar { font-family: Cairo, sans-serif; direction: rtl; }
 .serif { font-family: 'Playfair Display', serif; }
-.logo-slot { position: absolute; top: 48px; right: 56px; width: 260px; height: 130px; border: 2px dashed rgba(201,169,97,.7); border-radius: 16px; background: rgba(250,246,236,.06); }
+.logo-slot { position: absolute; top: 44px; right: 56px; width: 300px; height: auto; }
+.anim { width: 1920px; height: 1080px; }
+#animslogan { background: transparent; }
+#animslogan div { position: absolute; left: 0; right: 0; top: 860px; text-align: center; font-family: 'Playfair Display'; font-style: italic; font-size: 64px; color: var(--ivory); }
+#animslogan .r { position: absolute; left: 860px; width: 200px; height: 3px; top: 830px; background: var(--gold); }
+#thumb .tlogo { position: absolute; left: 470px; top: 30px; width: 250px; }
 
 /* Thumbnail */
 #thumb { width: 1280px; height: 720px; background: var(--navy); color: #fff; }
@@ -65,6 +70,7 @@ body { background: transparent; font-family: Inter, sans-serif; }
 </style></head><body>
 
 <div id="thumb" class="card">
+  <img class="tlogo" src="../logo/logo-ivoire-or.png">
   <div class="band">
     <div class="tag">4AM · BEM 2027</div>
     <h1>Les <span>connecteurs</span><br>du BEM</h1>
@@ -76,7 +82,7 @@ body { background: transparent; font-family: Inter, sans-serif; }
 </div>
 
 <div id="intro" class="card hd navybg center">
-  <div class="logo-slot"></div>
+  <img class="logo-slot" src="../logo/logo-ivoire-or.png">
   <div class="k">Français 4AM · Préparation BEM</div>
   <h1>Les connecteurs logiques</h1>
   <div class="rule"></div>
@@ -85,7 +91,7 @@ body { background: transparent; font-family: Inter, sans-serif; }
 </div>
 
 <div id="outro" class="card hd navybg center">
-  <div class="logo-slot"></div>
+  <img class="logo-slot" src="../logo/logo-ivoire-or.png">
   <h1>Apprendre, grandir, réussir.</h1>
   <div class="rule"></div>
   <div class="sig">Monsieur Halim – Apprendre et réussir</div>
@@ -122,6 +128,9 @@ body { background: transparent; font-family: Inter, sans-serif; }
     <li>Le sport est bon pour la santé, <span class="ans">mais / cependant</span> il faut le pratiquer avec modération.</li>
   </ol>
 </div>
+
+<div id="animbg" class="card anim navybg"></div>
+<div id="animslogan" class="card anim"><span class="r"></span><div>Apprendre, grandir, réussir.</div></div>
 
 <div id="lower" class="card">
   <div class="bar"><div class="gold"></div><div class="txt"><div class="n">Monsieur Halim</div><div class="r">Professeur de français · 4AM · BEM</div></div></div>
