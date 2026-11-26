@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=Cairo:wght@600;700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 14mm 14mm 14mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, sans-serif; color: #1A1A1A; font-size: 10.5pt; line-height: 1.5; }
+.ar { font-family: Cairo, sans-serif; direction: rtl; unicode-bidi: isolate; }
+h1 { font-family: 'Playfair Display', serif; color: #1B2A4A; font-size: 24pt; line-height: 1.15; }
+.kicker { font-size: 9pt; letter-spacing: .14em; text-transform: uppercase; color: #9A7B3C; font-weight: 600; }
+h2 { font-family: 'Playfair Display', serif; color: #1B2A4A; font-size: 15pt; margin: 7mm 0 2.5mm; padding-bottom: 1.5mm; border-bottom: 1px solid #C9A961; }
+.meta { display: flex; gap: 3mm; flex-wrap: wrap; margin: 3mm 0 2mm; }
+.meta span { border: 1px solid #C9A961; border-radius: 99px; padding: .5mm 3mm; font-size: 9pt; color: #1B2A4A; }
+ul.check li { margin: 1mm 0 1mm 5mm; }
+.scene { border: 1px solid #E6E0D0; border-left: 4px solid #1B2A4A; border-radius: 1.5mm; padding: 3mm 4mm; margin-bottom: 3.5mm; break-inside: avoid; }
+.scene .top { display: flex; align-items: baseline; gap: 3mm; margin-bottom: 1.5mm; }
+.scene .t { font-weight: 700; color: #9A7B3C; font-size: 9.5pt; white-space: nowrap; }
+.scene h3 { font-size: 11.5pt; color: #1B2A4A; }
+.scene .plan { margin-left: auto; font-size: 8.5pt; background: #FAF6EC; border: 1px solid #E6E0D0; padding: .3mm 2.5mm; border-radius: 99px; white-space: nowrap; }
+.say { margin: 1.5mm 0; padding-left: 3mm; border-left: 2px solid #C9A961; }
+.say p { margin: 1mm 0; }
+.say .ar { display: block; color: #1B2A4A; font-weight: 600; text-align: right; }
+.do { font-size: 9.3pt; color: #555; margin-top: 1.5mm; }
+.do b { color: #1B2A4A; }
+.board { border: 2px solid #1B2A4A; border-radius: 2mm; padding: 3mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin: 2mm 0 3mm; font-size: 9.5pt; break-inside: avoid; }
+.board > div { border: 1px dashed #C9A961; padding: 2mm; border-radius: 1mm; }
+.board h4 { color: #1B2A4A; font-size: 10pt; margin-bottom: 1mm; }
+.board .full { grid-column: 1 / -1; text-align: center; font-weight: 700; color: #1B2A4A; }
+.blue { color: #1F4FA0; font-weight: 700; } .red { color: #B02A2A; font-weight: 700; }
+table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+td, th { border-bottom: .5px solid #E6E0D0; padding: 1.3mm 2mm; text-align: left; vertical-align: top; }
+th { color: #9A7B3C; font-size: 8.5pt; text-transform: uppercase; letter-spacing: .06em; }
+.foot { margin-top: 6mm; font-size: 8.5pt; color: #1B2A4A; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; }
+</style></head><body>
+
+<div class="kicker">Vidéo n°1 · Scénario de tournage</div>
+<h1>Les connecteurs du BEM en 10 minutes</h1>
+<div class="meta"><span>Niveau : 4AM</span><span>Durée cible : 10 à 12 min</span><span>Format : face caméra + tableau</span><span>Langue : français, explications en darija</span></div>
+
+<h2>Avant de filmer</h2>
+<ul class="check">
+  <li><b>Téléphone à l'horizontale</b> (16:9), en 1080p, sur trépied, à hauteur de poitrine, à 2 ou 3 m du tableau. Le cadre doit prendre tout le tableau et toi en entier jusqu'à la taille.</li>
+  <li><b>Son :</b> un micro-cravate filaire (pas cher) change tout. Sinon, filme dans une salle fermée, sans ventilateur, et rapproche le téléphone.</li>
+  <li><b>Lumière :</b> face à une fenêtre ou avec une lampe derrière le téléphone. Jamais la fenêtre derrière toi.</li>
+  <li><b>Tableau :</b> efface-le bien et écris gros (au moins 10 cm par lettre). Utilise une couleur pour les connecteurs (bleu) et une autre pour les pièges (rouge).</li>
+  <li><b>Tenue :</b> ton tablier. Garde la même tenue pour toute la série, ça devient ta signature.</li>
+  <li><b>Méthode :</b> filme scène par scène. Si tu te trompes, fais une pause de 2 secondes et recommence la phrase. Le montage coupera.</li>
+</ul>
+
+<h2>Le tableau à préparer (avant la scène 3)</h2>
+<div class="board">
+  <div class="full">LES CONNECTEURS LOGIQUES · 3 FAMILLES</div>
+  <div><h4>1. ORGANISER</h4><span class="blue">D'abord, ensuite, enfin</span><br><span class="blue">De plus, en outre</span><br><span class="blue">Par exemple</span><br><span class="blue">En conclusion</span></div>
+  <div><h4>2. EXPLIQUER</h4>Cause : <span class="blue">car, parce que, en effet</span><br>Conséquence : <span class="blue">donc, c'est pourquoi</span><br>But : <span class="blue">pour, afin de</span></div>
+  <div><h4>3. NUANCER</h4>Opposition : <span class="blue">mais, cependant</span><br>Concession : <span class="blue">certes… mais, malgré</span></div>
+</div>
+<p class="do">Astuce : écris ce tableau <b>avant</b> de filmer la scène 3, puis filme-toi en train de souligner chaque famille. C'est plus rapide qu'écrire en direct et l'élève voit tout le plan d'un coup.</p>
+
+<h2>Déroulé scène par scène</h2>
+
+<div class="scene">
+  <div class="top"><span class="t">0:00 – 0:20</span><h3>1. L'accroche</h3><span class="plan">Plan serré, face caméra</span></div>
+  <div class="say">
+    <p>« Dans ta <span class="ar">وضعية إدماجية</span>, le correcteur ne regarde pas seulement tes idées. Il regarde comment tu les relies. Et pour ça, il y a des petits mots magiques : les connecteurs. »</p>
+    <p class="ar">في هاد الفيديو، في 10 دقايق، تعرف كامل الروابط اللي لازمك في البيام. والملخص PDF راه في الوصف.</p>
+  </div>
+  <div class="do">Ton énergique, sourire, regarde l'objectif (pas l'écran).</div>
+</div>
+
+<div class="scene">
+  <div class="top"><span class="t">0:20 – 0:25</span><h3>2. Générique</h3><span class="plan">Fichier intro.mp4</span></div>
+  <div class="do">Rien à filmer : insérer <b>intro.mp4</b> au montage.</div>
+</div>
+
+<div class="scene">
+  <div class="top"><span class="t">0:25 – 1:30</span><h3>3. C'est quoi un connecteur ?</h3><span class="plan">Plan large, au tableau</span></div>
+  <div class="say">
+    <p>« Bonjour à tous, je suis Monsieur Halim, professeur de français. Un connecteur, c'est un mot qui relie deux idées et qui dit au lecteur quel est le lien entre elles. »</p>
+    <p>« Regardez : <i>Il pleut. Je prends mon parapluie.</i> Deux phrases, pas de lien. Maintenant : <i>Il pleut, <b>donc</b> je prends mon parapluie.</i> Le mot <b>donc</b> montre la conséquence. »</p>
+    <p class="ar">الرابط هو الكلمة اللي تربط فكرة بفكرة، وتبيّن العلاقة بيناتهم.</p>
+    <p>« Pour ne pas les apprendre comme une liste longue et ennuyeuse, on va les ranger en 3 familles. »</p>
+  </div>
+  <div class="do">Montre le tableau. Insérer <b>bandeau-nom.png</b> pendant 5 secondes quand tu te présentes.</div>
+</div>
+
+<div class="scene">
+  <div class="top"><span class="t">1:30 – 3:30</span><h3>4. Famille 1 : organiser</h3><span class="plan">Au tableau, colonne 1</span></div>
+  <div class="say">
+    <p>« La première famille sert à <b>mettre de l'ordre</b> : <i>d'abord, ensuite, enfin</i>. Pour <b>ajouter</b> une idée : <i>de plus, en outre</i>. Pour donner un <b>exemple</b> : <i>par exemple</i>. Et pour terminer : <i>en conclusion</i>. »</p>
+    <p class="ar">هادو هوما اللي يرتبولك الموضوع تاعك: المقدمة، العرض، والخاتمة.</p>
+    <p>« Exemple : <i>D'abord, le sport renforce le corps. De plus, il calme l'esprit. Par exemple, une marche de 30 minutes réduit le stress.</i> »</p>
+  </div>
+  <div class="do">Souligne chaque connecteur en bleu pendant que tu lis l'exemple.</div>
+</div>
+
+<div class="scene">
+  <div class="top"><span class="t">3:30 – 5:30</span><h3>5. Famille 2 : expliquer</h3><span class="plan">Au tableau, colonne 2</span></div>
+  <div class="say">
+    <p>« La deuxième famille sert à <b>expliquer</b>. La <b>cause</b>, c'est le <i>pourquoi</i> : <i>car, parce que, en effet</i>. La <b>conséquence</b>, c'est le <i>résultat</i> : <i>donc, c'est pourquoi</i>. Le <b>but</b>, c'est l'<i>objectif</i> : <i>pour, afin de</i>. »</p>
+    <p class="ar">السبب = علاش؟ · النتيجة = واش صرا؟ · الهدف = باش ندير واش؟</p>
+    <p>« Exemple : <i>L'air est pollué <b>parce que</b> les usines rejettent des fumées, <b>c'est pourquoi</b> nous devons planter des arbres <b>pour</b> respirer un air pur.</i> Une seule phrase, trois connecteurs ! »</p>
+  </div>
+  <div class="do">C'est le moment le plus important : ralentis et pose la question à la caméra : « Cause, conséquence ou but ? »</div>
+</div>
+
+<div class="scene">
+  <div class="top"><span class="t">5:30 – 6:45</span><h3>6. Famille 3 : nuancer</h3><span class="plan">Au tableau, colonne 3</span></div>
+  <div class="say">
+    <p>« La troisième famille sert à <b>montrer l'autre côté</b>. L'<b>opposition</b> : <i>mais, cependant</i>. La <b>concession</b>, c'est reconnaître quelque chose avant de dire son avis : <i>certes… mais</i>. »</p>
+    <p>« Exemple : <i>Certes, le téléphone est pratique, mais il nous isole de notre famille.</i> Ça, c'est une phrase qui impressionne le correcteur. »</p>
+    <p class="ar">"Certes… mais" تخلي الموضوع تاعك يبان قوي ومقنع.</p>
+  </div>
+</div>
+
+<div class="scene">
+  <div class="top"><span class="t">6:45 – 8:00</span><h3>7. Les 4 pièges</h3><span class="plan">Au tableau, en rouge</span></div>
+  <div class="say">
+    <p>« Attention, voici les erreurs que je vois tout le temps dans les copies. »</p>
+    <p>1. « <span class="red">à cause de ses efforts</span> » est faux. Quand le résultat est positif, on dit <b>grâce à</b> ses efforts.</p>
+    <p>2. « <span class="red">Malgré qu'il pleut</span> » est faux. Après <b>malgré</b>, on met un nom : <b>malgré la pluie</b>.</p>
+    <p>3. <b>Pour</b> + infinitif (<i>pour réussir</i>), mais <b>pour que</b> + subjonctif (<i>pour que tu réussisses</i>).</p>
+    <p>4. Ne répète pas <i>et, et, et</i>. Varie avec <i>de plus, en outre</i>.</p>
+  </div>
+  <div class="do">Écris la forme fausse en rouge, barre-la, puis écris la forme correcte.</div>
+</div>
+
+<div class="scene">
+  <div class="top"><span class="t">8:00 – 9:30</span><h3>8. Exercice puis correction</h3><span class="plan">Cartes à l'écran + toi</span></div>
+  <div class="say">
+    <p>« À toi de jouer ! Mets la vidéo en pause, prends ton cahier et complète ces 5 phrases. »</p>
+    <p class="ar">حبّس الفيديو، جاوب في الكراس، ومن بعد شوف التصحيح.</p>
+    <p>« Alors, la correction. » (Lis chaque réponse et justifie en une phrase : « grâce à, parce que c'est positif ».)</p>
+  </div>
+  <div class="do">Insérer <b>carte-exercice.png</b> pendant 6 secondes avec un compte à rebours, puis <b>carte-correction.png</b> pendant que tu expliques.</div>
+</div>
+
+<div class="scene">
+  <div class="top"><span class="t">9:30 – 10:15</span><h3>9. Le défi et la conclusion</h3><span class="plan">Plan serré, face caméra</span></div>
+  <div class="say">
+    <p>« Retiens : 3 familles, organiser, expliquer, nuancer. Si tu utilises au moins un connecteur de chaque famille dans ta <span class="ar">وضعية</span>, ta production sera claire et bien construite. »</p>
+    <p>« Ton défi : écris en commentaire une phrase avec <b>c'est pourquoi</b> et une phrase avec <b>malgré</b>. Je corrige les meilleures dans la prochaine vidéo. »</p>
+    <p class="ar">الملخص PDF راه في الوصف. ما تنساوش تشتركو في القناة. نتلاقاو في الفيديو الجاية!</p>
+  </div>
+</div>
+
+<div class="scene">
+  <div class="top"><span class="t">10:15 – 10:25</span><h3>10. Carton final</h3><span class="plan">Fichier outro.mp4</span></div>
+  <div class="do">Insérer <b>outro.mp4</b> (10 s). Dans YouTube Studio, ajoute un « écran de fin » par-dessus : bouton « S'abonner » et la vidéo suivante.</div>
+</div>
+
+<h2>Montage (CapCut, gratuit sur téléphone)</h2>
+<table>
+  <tr><th>Étape</th><th>À faire</th></tr>
+  <tr><td>1</td><td>Mets les scènes dans l'ordre et coupe les silences et les erreurs.</td></tr>
+  <tr><td>2</td><td>Ajoute <b>intro.mp4</b> après l'accroche et <b>outro.mp4</b> à la fin.</td></tr>
+  <tr><td>3</td><td>Pose <b>bandeau-nom.png</b> en calque (overlay) pendant ta présentation.</td></tr>
+  <tr><td>4</td><td>Insère les cartes d'exercice et de correction en plein écran.</td></tr>
+  <tr><td>5</td><td>Active les sous-titres automatiques et corrige les mots mal reconnus.</td></tr>
+  <tr><td>6</td><td>Musique : uniquement la bibliothèque libre de droits de CapCut ou de YouTube, très bas sous la voix.</td></tr>
+  <tr><td>7</td><td>Exporte en 1080p, 30 images/s.</td></tr>
+</table>
+
+<p class="foot">Monsieur Halim – Apprendre et réussir · Apprendre, grandir, réussir.</p>
+</body></html>

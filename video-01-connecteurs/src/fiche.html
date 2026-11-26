@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=Cairo:wght@500;700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, sans-serif; color: #1A1A1A; background: #fff; }
+.page { width: 210mm; min-height: 297mm; padding: 14mm 14mm 12mm; position: relative; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1.5px solid #1B2A4A; padding-bottom: 4mm; margin-bottom: 5mm; }
+.kicker { font-size: 9pt; letter-spacing: .14em; text-transform: uppercase; color: #9A7B3C; font-weight: 600; }
+h1 { font-family: 'Playfair Display', serif; font-size: 25pt; color: #1B2A4A; line-height: 1.1; margin-top: 1.5mm; }
+.ar { font-family: Cairo, sans-serif; direction: rtl; }
+.sub { font-size: 12pt; color: #1B2A4A; margin-top: 1mm; text-align: left; }
+.logo-slot { width: 34mm; height: 17mm; border: 1px dashed #C9A961; border-radius: 2mm; display: flex; align-items: center; justify-content: center; font-size: 7pt; color: #9A7B3C; text-align: center; }
+.intro { font-size: 10pt; line-height: 1.5; margin-bottom: 4mm; }
+.fam { margin-bottom: 4mm; }
+.fam h2 { font-family: 'Playfair Display', serif; font-size: 14pt; color: #1B2A4A; display: flex; align-items: baseline; gap: 3mm; margin-bottom: 2mm; }
+.fam h2 .n { color: #C9A961; font-size: 18pt; }
+.fam h2 .ar { font-size: 11pt; color: #9A7B3C; margin-left: auto; font-weight: 700; }
+table { width: 100%; border-collapse: collapse; font-size: 9.6pt; }
+th { text-align: left; font-size: 8pt; text-transform: uppercase; letter-spacing: .08em; color: #9A7B3C; border-bottom: 1px solid #C9A961; padding: 1.2mm 2mm; }
+td { padding: 1.6mm 2mm; border-bottom: 0.5px solid #E6E0D0; vertical-align: top; line-height: 1.35; }
+td.r { width: 25mm; font-weight: 600; color: #1B2A4A; }
+td.c { width: 62mm; }
+td.c b { color: #1B2A4A; }
+td.e { font-style: italic; color: #333; }
+.note { font-size: 8.4pt; color: #9A7B3C; font-weight: 600; font-style: normal; }
+.box { border: 1px solid #C9A961; border-left: 4px solid #C9A961; padding: 3mm 4mm; border-radius: 1.5mm; margin-bottom: 4mm; font-size: 10pt; line-height: 1.5; }
+.box h3 { font-family: 'Playfair Display', serif; color: #1B2A4A; font-size: 12.5pt; margin-bottom: 1.5mm; }
+.pieges li { margin: 1mm 0 1mm 5mm; }
+.ok { color: #1F6B3A; font-weight: 600; } .ko { color: #A33; font-weight: 600; text-decoration: line-through; }
+.para { font-size: 10.5pt; line-height: 1.75; }
+.para mark { background: none; color: #1B2A4A; font-weight: 700; border-bottom: 2px solid #C9A961; }
+.ex li { margin: 2.2mm 0 2.2mm 6mm; font-size: 10.5pt; }
+.blank { display: inline-block; width: 32mm; border-bottom: 1px solid #1A1A1A; }
+.answers { font-size: 8.5pt; color: #555; margin-top: 2mm; transform: rotate(180deg); text-align: right; }
+footer { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; display: flex; justify-content: space-between; font-size: 8pt; color: #1B2A4A; border-top: 0.5px solid #C9A961; padding-top: 2mm; }
+footer i { font-family: 'Playfair Display', serif; }
+</style></head><body>
+
+<section class="page">
+  <header>
+    <div>
+      <div class="kicker">4AM · Préparation BEM · Fiche n°1</div>
+      <h1>Les connecteurs logiques</h1>
+      <div class="sub ar">أهم الروابط المنطقية للوضعية الإدماجية</div>
+    </div>
+    <div class="logo-slot">Emplacement<br>du logo</div>
+  </header>
+
+  <p class="intro">Un connecteur relie deux idées et montre au lecteur <b>le lien logique</b> entre elles. Dans un texte argumentatif, ils rendent ta production claire et cohérente. Apprends-les en <b>3 familles</b>.</p>
+
+  <div class="fam">
+    <h2><span class="n">1</span> Organiser ses idées <span class="ar">ترتيب الأفكار</span></h2>
+    <table>
+      <tr><th>Rapport</th><th>Connecteurs</th><th>Exemple</th></tr>
+      <tr><td class="r">Ordre</td><td class="c"><b>D'abord, premièrement, ensuite, puis, enfin</b></td><td class="e">D'abord, je présente ma thèse. Ensuite, je donne mes arguments.</td></tr>
+      <tr><td class="r">Addition</td><td class="c"><b>Et, de plus, en outre, aussi, également, par ailleurs</b></td><td class="e">Le sport renforce le corps. De plus, il calme l'esprit.</td></tr>
+      <tr><td class="r">Exemple</td><td class="c"><b>Par exemple, comme, notamment, ainsi</b></td><td class="e">Beaucoup de plages sont sales, par exemple celles de ma ville.</td></tr>
+      <tr><td class="r">Conclusion</td><td class="c"><b>En conclusion, pour conclure, bref, en somme</b></td><td class="e">En conclusion, protégeons notre planète.</td></tr>
+    </table>
+  </div>
+
+  <div class="fam">
+    <h2><span class="n">2</span> Expliquer ses idées <span class="ar">التعليل والنتيجة والهدف</span></h2>
+    <table>
+      <tr><th>Rapport</th><th>Connecteurs</th><th>Exemple</th></tr>
+      <tr><td class="r">Cause</td><td class="c"><b>Car, parce que, puisque, comme, en effet</b><br><span class="note">+ nom : grâce à (positif), à cause de (négatif)</span></td><td class="e">L'air est pollué parce que les usines rejettent des fumées.</td></tr>
+      <tr><td class="r">Conséquence</td><td class="c"><b>Donc, alors, ainsi, c'est pourquoi, par conséquent, si bien que</b></td><td class="e">Il a beaucoup révisé, c'est pourquoi il a réussi.</td></tr>
+      <tr><td class="r">But</td><td class="c"><b>Pour, afin de</b> <span class="note">+ infinitif</span><br><b>Pour que, afin que</b> <span class="note">+ subjonctif</span></td><td class="e">Je révise pour réussir. Le prof explique pour que nous comprenions.</td></tr>
+    </table>
+  </div>
+
+  <div class="fam">
+    <h2><span class="n">3</span> Nuancer ses idées <span class="ar">المعارضة والتنازل</span></h2>
+    <table>
+      <tr><th>Rapport</th><th>Connecteurs</th><th>Exemple</th></tr>
+      <tr><td class="r">Opposition</td><td class="c"><b>Mais, cependant, pourtant, toutefois, par contre, en revanche</b></td><td class="e">Internet est utile, mais il peut être dangereux.</td></tr>
+      <tr><td class="r">Concession</td><td class="c"><b>Certes… mais, même si, bien que</b> <span class="note">+ subjonctif</span><br><b>Malgré</b> <span class="note">+ nom</span></td><td class="e">Certes, le téléphone est pratique, mais il nous isole. Malgré la pluie, il est venu.</td></tr>
+    </table>
+  </div>
+
+  <footer><span><i>Monsieur Halim – Apprendre et réussir</i></span><span>Apprendre, grandir, réussir.</span></footer>
+</section>
+
+<section class="page">
+  <header>
+    <div>
+      <div class="kicker">4AM · Préparation BEM · Fiche n°1</div>
+      <h1>Pièges et entraînement</h1>
+    </div>
+    <div class="logo-slot">Emplacement<br>du logo</div>
+  </header>
+
+  <div class="box pieges">
+    <h3>⚠ Les 4 pièges les plus fréquents</h3>
+    <ul>
+      <li><b>Grâce à / à cause de :</b> on dit <span class="ok">Il a réussi grâce à ses efforts</span> et non <span class="ko">à cause de ses efforts</span>, parce que le résultat est positif.</li>
+      <li><b>Malgré + nom :</b> on dit <span class="ok">Malgré la pluie</span> et non <span class="ko">Malgré qu'il pleut</span>.</li>
+      <li><b>Pour + infinitif / pour que + subjonctif :</b> on dit <span class="ok">pour réussir</span> et <span class="ok">pour que tu réussisses</span>.</li>
+      <li><b>Ne pas répéter « et » :</b> varie avec <i>de plus, en outre, par ailleurs</i>.</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h3>✍ Un paragraphe modèle : la pollution</h3>
+    <p class="para">De nos jours, la pollution menace notre planète. <mark>D'abord</mark>, les usines rejettent des fumées toxiques ; <mark>c'est pourquoi</mark> l'air devient irrespirable. <mark>De plus</mark>, certaines personnes jettent leurs déchets dans la nature <mark>à cause du</mark> manque de civisme. <mark>Par exemple</mark>, nos plages sont couvertes de plastique. <mark>Certes</mark>, des campagnes de nettoyage existent, <mark>mais</mark> chacun doit faire un effort. <mark>En conclusion</mark>, protégeons notre environnement <mark>pour que</mark> nos enfants vivent en bonne santé.</p>
+  </div>
+
+  <div class="box">
+    <h3>🎯 Exercice : complète avec le bon connecteur</h3>
+    <ol class="ex">
+      <li>Il pleut, <span class="blank"></span> je prends mon parapluie.</li>
+      <li>Je révise chaque soir <span class="blank"></span> réussir mon BEM.</li>
+      <li><span class="blank"></span> la fatigue, il a continué à travailler.</li>
+      <li>Elle a obtenu une bonne note <span class="blank"></span> ses efforts.</li>
+      <li>Le sport est bon pour la santé, <span class="blank"></span> il faut le pratiquer avec modération.</li>
+    </ol>
+    <p class="answers">Corrigé : 1. donc / c'est pourquoi · 2. pour / afin de · 3. Malgré · 4. grâce à · 5. mais / cependant</p>
+  </div>
+
+  <div class="box">
+    <h3>💬 Ton défi</h3>
+    <p>Écris en commentaire sous la vidéo une phrase sur le thème de ton choix avec <b>« c'est pourquoi »</b> et une autre avec <b>« malgré »</b>. Je corrige les meilleures dans la prochaine vidéo !</p>
+  </div>
+
+  <footer><span><i>Monsieur Halim – Apprendre et réussir</i></span><span>Apprendre, grandir, réussir.</span></footer>
+</section>
+</body></html>
