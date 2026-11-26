@@ -16,3 +16,6 @@
 local.properties
 .env
 debug.keystore
+# Photos personnelles : gardées hors du dépôt
+video-01-connecteurs/photo/*.jpg
+video-01-connecteurs/photo/*.png

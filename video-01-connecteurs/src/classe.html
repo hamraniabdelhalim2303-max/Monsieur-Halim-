@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1840px; height: 3780px; overflow: hidden; }
+.room { position: relative; width: 1840px; height: 3780px; background: linear-gradient(180deg, #f3eee4 0%, #ece5d6 55%, #e2d8c4 100%); }
+.ceiling { position: absolute; left: 0; right: 0; top: 0; height: 380px; background: linear-gradient(180deg, #fbfaf6, #efe9dd); }
+.light { position: absolute; top: 120px; left: 520px; width: 800px; height: 40px; border-radius: 20px; background: #fff; box-shadow: 0 0 160px 60px rgba(255,252,240,.9); }
+.window { position: absolute; left: -120px; top: 620px; width: 420px; height: 1500px; background: linear-gradient(90deg, #fffef8, #e9f1f6); border: 26px solid #d9d2c3; box-shadow: 0 0 200px 80px rgba(255,250,235,.55); }
+.window::after { content: ''; position: absolute; left: 0; right: 0; top: 48%; height: 20px; background: #d9d2c3; }
+.board { position: absolute; left: 300px; right: 120px; top: 720px; height: 1350px; background: radial-gradient(ellipse at 40% 35%, #35594a 0%, #23402f 60%, #1c3427 100%); border: 34px solid #8a6a43; box-shadow: 0 30px 60px rgba(0,0,0,.25), inset 0 0 120px rgba(0,0,0,.35); }
+.tray { position: absolute; left: 280px; right: 100px; top: 2085px; height: 40px; background: #7a5c38; box-shadow: 0 14px 22px rgba(0,0,0,.25); }
+.chalk { position: absolute; color: rgba(245,245,235,.92); font-family: Caveat, cursive; text-shadow: 0 0 2px rgba(255,255,255,.5); }
+.t1 { left: 90px; top: 50px; font-size: 150px; font-weight: 700; }
+.t1u { position: absolute; left: 90px; top: 235px; width: 1100px; height: 6px; background: rgba(240,220,160,.85); }
+.c { font-size: 110px; }
+.date { right: 80px; top: 70px; font-size: 90px; color: rgba(245,245,235,.75); }
+.lower { position: absolute; left: 0; right: 0; top: 2300px; height: 30px; background: #cdbf9f; }
+.panel { position: absolute; left: 0; right: 0; top: 2330px; bottom: 0; background: linear-gradient(180deg, #d8ccb0, #c8b994); }
+.desk { position: absolute; height: 120px; background: linear-gradient(180deg, #b0814f, #8c6238); border-radius: 10px; box-shadow: 0 40px 50px rgba(0,0,0,.25); }
+.leg { position: absolute; width: 40px; background: #555; }
+.floor { position: absolute; left: 0; right: 0; top: 3050px; bottom: 0; background: repeating-linear-gradient(90deg, #c9b8a0 0 230px, #bfae95 230px 460px); }
+</style></head><body>
+<div class="room">
+  <div class="ceiling"><div class="light"></div></div>
+  <div class="window"></div>
+  <div class="board">
+    <div class="chalk t1">Les connecteurs logiques</div><div class="t1u"></div>
+    <div class="chalk date">4AM</div>
+    <div class="chalk c" style="left:110px;top:330px">1. D'abord, ensuite, enfin</div>
+    <div class="chalk c" style="left:110px;top:500px">2. Parce que → c'est pourquoi</div>
+    <div class="chalk c" style="left:110px;top:670px">3. Certes… mais / malgré</div>
+    <div class="chalk c" style="left:110px;top:870px;font-size:96px;color:rgba(240,220,160,.9)">Il a réussi grâce à ses efforts.</div>
+  </div>
+  <div class="tray"></div>
+  <div class="lower"></div><div class="panel"></div>
+  <div class="floor"></div>
+  <div class="desk" style="left:-80px;top:2980px;width:760px"></div>
+  <div class="desk" style="left:1200px;top:2980px;width:760px"></div>
+  <div class="desk" style="left:-200px;top:3420px;width:900px;height:150px"></div>
+  <div class="desk" style="left:1150px;top:3420px;width:900px;height:150px"></div>
+</div>
+</body></html>
