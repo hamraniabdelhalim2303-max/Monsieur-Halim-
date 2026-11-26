@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Cairo:wght@600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root { --navy:#1B2A4A; --gold:#C9A961; --ivory:#FAF6EC; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.s { width: 1920px; height: 1080px; position: relative; overflow: hidden; font-family: Inter, sans-serif; }
+.ar { font-family: Cairo, sans-serif; direction: rtl; unicode-bidi: isolate; }
+/* camera placeholder */
+.cam { background: linear-gradient(160deg,#2a3a5e,#141f38); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.cam .rec { position: absolute; top: 50px; left: 60px; font-size: 34px; font-weight: 700; color: #ff6b6b; letter-spacing: .1em; }
+.cam .lab { font-size: 34px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.cam .quote { font-family: 'Playfair Display'; font-size: 66px; max-width: 1500px; line-height: 1.25; margin-top: 30px; }
+.cam .arq { font-size: 46px; color: var(--ivory); margin-top: 26px; }
+.cam .frame { position: absolute; inset: 40px; border: 3px dashed rgba(201,169,97,.5); border-radius: 30px; }
+/* board */
+.board { background: radial-gradient(ellipse at 40% 30%, #2b3f68, #18243f 75%); color: #fff; padding: 80px 110px; border: 28px solid #6b4f2e; }
+.board h2 { font-family: Caveat, cursive; font-size: 96px; text-align: center; color: #fff; }
+.board .ul { width: 500px; height: 4px; background: var(--gold); margin: 6px auto 50px; }
+.cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
+.col h3 { font-family: Caveat; font-size: 70px; color: var(--gold); margin-bottom: 14px; }
+.col p { font-family: Caveat; font-size: 56px; line-height: 1.25; color: #dfe8ff; }
+.col p b { color: #8fc1ff; font-weight: 700; }
+.sent { font-family: Caveat; font-size: 78px; line-height: 1.45; text-align: center; margin-top: 40px; }
+.sent .c { color: #8fc1ff; border-bottom: 5px solid #8fc1ff; }
+.sent .q { color: #ffd479; border-bottom: 5px solid #ffd479; }
+.sent .b { color: #9ff0b5; border-bottom: 5px solid #9ff0b5; }
+.legend { display: flex; justify-content: center; gap: 70px; margin-top: 60px; font-family: Caveat; font-size: 60px; }
+.pg { font-family: Caveat; font-size: 70px; line-height: 1.5; margin-top: 20px; }
+.pg .x { color: #ff8a8a; text-decoration: line-through; }
+.pg .ok { color: #9ff0b5; }
+.tag { position: absolute; bottom: 40px; right: 60px; font-size: 26px; color: rgba(255,255,255,.55); font-family: Inter; }
+</style></head><body>
+
+<div id="cam1" class="s cam"><div class="frame"></div><div class="rec">● REC</div>
+  <div class="lab">🎥 Ici : toi, face caméra</div>
+  <div class="quote">« Dans ta production écrite, le correcteur regarde comment tu relies tes idées… »</div>
+  <div class="arq ar">في هاد الفيديو، في 10 دقايق، تعرف كامل الروابط اللي لازمك في البيام</div>
+</div>
+
+<div id="b1" class="s board">
+  <h2>Les connecteurs logiques · 3 familles</h2><div class="ul"></div>
+  <div class="cols">
+    <div class="col"><h3>1. Organiser</h3><p><b>D'abord</b>, <b>ensuite</b>, <b>enfin</b><br><b>De plus</b>, <b>en outre</b><br><b>Par exemple</b><br><b>En conclusion</b></p></div>
+    <div class="col"><h3>2. Expliquer</h3><p>Cause : <b>car</b>, <b>parce que</b><br>Conséquence : <b>donc</b>, <b>c'est pourquoi</b><br>But : <b>pour</b>, <b>afin de</b></p></div>
+    <div class="col"><h3>3. Nuancer</h3><p>Opposition : <b>mais</b>, <b>cependant</b><br>Concession : <b>certes… mais</b>, <b>malgré</b></p></div>
+  </div>
+  <div class="tag">Ce que tu écris au tableau</div>
+</div>
+
+<div id="b2" class="s board">
+  <h2>Une phrase, trois connecteurs !</h2><div class="ul"></div>
+  <div class="sent">L'air est pollué <span class="c">parce que</span> les usines rejettent des fumées, <span class="q">c'est pourquoi</span> nous devons planter des arbres <span class="b">pour</span> respirer un air pur.</div>
+  <div class="legend"><span style="color:#8fc1ff">cause</span><span style="color:#ffd479">conséquence</span><span style="color:#9ff0b5">but</span></div>
+  <div class="tag">Scène 5 : famille « expliquer »</div>
+</div>
+
+<div id="b3" class="s board">
+  <h2>⚠ Les pièges</h2><div class="ul"></div>
+  <div class="pg">
+    <span class="x">Il a réussi à cause de ses efforts</span> → <span class="ok">grâce à ses efforts</span><br>
+    <span class="x">Malgré qu'il pleut</span> → <span class="ok">Malgré la pluie</span><br>
+    <span class="ok">pour réussir</span> · <span class="ok">pour que tu réussisses</span>
+  </div>
+  <div class="tag">Scène 7 : faux en rouge, correct en vert</div>
+</div>
+
+<div id="cam2" class="s cam"><div class="frame"></div><div class="rec">● REC</div>
+  <div class="lab">🎥 Ici : toi, face caméra</div>
+  <div class="quote">« Ton défi : une phrase avec <i>c'est pourquoi</i> et une avec <i>malgré</i>, en commentaire ! »</div>
+  <div class="arq ar">الملخص PDF راه في الوصف. نتلاقاو في الفيديو الجاية!</div>
+</div>
+</body></html>
